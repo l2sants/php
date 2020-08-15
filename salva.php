@@ -22,24 +22,9 @@ else {
 	$db->exec("INSERT INTO tarefas(titulo, descricao, data)VALUES('$titulo', '$descricao', '$data')"); 
 }
 
-$res = $db->query("SELECT * FROM tarefas");
+header("Location: index.php");
 
 
 
-?>
 
-<ul>
-<?php
-while($row = $res->fetchArray()) { ?>
-	<li>
-		<form acition="./delete.php" method="POST"> 
-			<input type="hidden" value=<?php echo $row['id']?>>
-			<input type="submit" value="X">
-		</form>
-		<h4><?php echo $row['titulo']?></h4>
-		<p><?php echo $row['descricao']?></p>
-		<strong><?php echo $row['data']?></strong>
-	</li>
-<?php } ?>
 
-</ul>
